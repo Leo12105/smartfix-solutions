@@ -1,57 +1,139 @@
-/* Hero centrado y más compacto */
+/* Estilo general */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0077cc, #00cc88);
+  color: white;
+}
+
+/* Navbar fija */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;   /* más compacto */
+  z-index: 1000;
+}
+
+nav h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;            /* menos separación */
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hero centrado y compacto */
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;             /* antes 100vh */
+  height: 85vh;          /* antes 100vh */
   text-align: center;
 }
 
 .hero {
   background: rgba(0,0,0,0.3);
   border-radius: 12px;
-  padding: 40px 20px;       /* antes 80px o más */
-  margin-top: 70px;         /* espacio justo por el navbar */
+  padding: 30px 20px;    /* antes 40px+ */
+  margin-top: 70px;      /* espacio justo por navbar */
 }
 
 .hero h2 {
-  font-size: 36px;          /* un poco más pequeño */
+  font-size: 32px;       /* más compacto */
   margin-bottom: 8px;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
-/* Sección servicios más compacta */
+.btn {
+  background-color: #ffcc00;
+  color: #333;
+  padding: 10px 18px;    /* más compacto */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+/* Sección servicios */
 .servicios {
-  padding: 30px 20px;       /* antes 60px */
+  padding: 30px 15px;    /* antes 60px */
   text-align: center;
 }
 
 .cards {
-  margin-top: 15px;         /* antes 20px */
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .card {
-  padding: 20px;            /* antes 30px */
+  background: rgba(255,255,255,0.1);
+  padding: 18px;         /* más compacto */
+  border-radius: 10px;
   font-size: 18px;
-  width: 260px;             /* más estrecho */
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Contacto más compacto */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+/* Contacto */
 .contacto {
-  padding: 30px 20px;       /* antes 60px */
+  padding: 30px 15px;    /* antes 60px */
   text-align: center;
 }
 
 .btn-whatsapp {
-  margin-top: 15px;         /* espacio justo */
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 12px;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
 }
 
 /* Footer */
 footer {
-  padding: 15px;            /* antes 20px */
+  background: rgba(0,0,0,0.3);
+  padding: 12px;         /* antes 20px */
+  text-align: center;
   font-size: 13px;
 }
