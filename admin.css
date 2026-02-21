@@ -26,23 +26,38 @@ nav a {
   border-radius: 8px;
 }
 
-form {
-  margin-bottom: 20px;
+.servicio {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-input, button {
+.servicio h3 {
+  margin-top: 0;
+}
+
+input {
   padding: 8px;
-  margin-top: 10px;
+  margin-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-button {
-  background: #0077cc;
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25D366;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-  background: #005fa3;
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
