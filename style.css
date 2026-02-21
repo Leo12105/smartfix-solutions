@@ -38,19 +38,20 @@ nav a {
   font-weight: 600;
 }
 
-.logo {
-  height: 40px;
-  margin-right: 15px;
+/* Hero centrado */
+header {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  height: 100vh;             /* ocupa toda la pantalla */
+  text-align: center;
 }
 
-/* Hero con overlay */
 .hero {
-  text-align: center;
-  padding: 120px 20px 80px;
   background: rgba(0,0,0,0.3);
   border-radius: 12px;
-  display: inline-block;
-  margin-top: 80px; /* espacio por navbar fija */
+  padding: 40px;
+  margin-top: 60px; /* espacio para que no se tape con el navbar */
 }
 
 .hero h2 {
@@ -87,16 +88,15 @@ nav a {
 .cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
   margin-top: 20px;
 }
 
 .card {
   background: rgba(255,255,255,0.1);
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  font-size: 18px;
-  width: 200px;
+  font-size: 20px;
+  width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -136,12 +136,3 @@ footer {
   text-align: center;
   font-size: 14px;
 }
-header {
-  display: flex;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente */
-  height: 100vh;           /* ocupa toda la altura de la pantalla */
-  text-align: center;
-}
-
-.
