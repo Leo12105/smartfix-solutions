@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Panel de Administración</title>
   <link rel="stylesheet" href="admin.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
@@ -15,18 +16,33 @@
 
   <section class="panel">
     <h2>Gestión de Servicios</h2>
-    <form>
-      <label for="servicio">Nuevo servicio:</label>
-      <input type="text" id="servicio" name="servicio" placeholder="Escribe el nombre del servicio">
-      <button type="submit">Agregar</button>
-    </form>
 
-    <h2>Servicios actuales</h2>
-    <ul>
-      <li>🔓 Desbloqueo</li>
-      <li>💾 Flasheo</li>
-      <li>📱 Actualización de apps</li>
-    </ul>
+    <!-- Servicio: Desbloqueo -->
+    <div class="servicio">
+      <h3>🔓 Desbloqueo</h3>
+      <label for="precio-desbloqueo">Precio:</label>
+      <input type="text" id="precio-desbloqueo" placeholder="Ej: $20">
+      <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20el%20servicio%20de%20Desbloqueo"
+         class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
+    </div>
+
+    <!-- Servicio: Flasheo -->
+    <div class="servicio">
+      <h3>💾 Servicio de Flasheo</h3>
+      <label for="precio-flasheo">Precio:</label>
+      <input type="text" id="precio-flasheo" placeholder="Ej: $30">
+      <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20el%20servicio%20de%20Flasheo"
+         class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
+    </div>
+
+    <!-- Servicio: Actualización de apps -->
+    <div class="servicio">
+      <h3>📱 Actualización de apps (iPhone & Android)</h3>
+      <label for="precio-apps">Precio:</label>
+      <input type="text" id="precio-apps" placeholder="Ej: $15">
+      <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20el%20servicio%20de%20Actualización%20de%20apps"
+         class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
+    </div>
   </section>
 </body>
 </html>
