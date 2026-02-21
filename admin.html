@@ -17,13 +17,10 @@
   <section class="panel">
     <h2>Gestión de Servicios</h2>
     <button id="abrirModal">➕ Agregar nuevo servicio</button>
-
-    <div class="lista-servicios">
-      <!-- Aquí aparecerán los servicios agregados -->
-    </div>
+    <div class="lista-servicios"></div>
   </section>
 
-  <!-- Ventana emergente (modal) -->
+  <!-- Ventana emergente -->
   <div id="modal" class="modal">
     <div class="modal-contenido">
       <span id="cerrarModal" class="cerrar">&times;</span>
@@ -41,7 +38,6 @@
   </div>
 
   <script>
-    // Abrir y cerrar modal
     const modal = document.getElementById("modal");
     const abrir = document.getElementById("abrirModal");
     const cerrar = document.getElementById("cerrarModal");
@@ -52,22 +48,36 @@
     cerrar.onclick = () => modal.style.display = "none";
     window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
-    // Guardar servicio y mostrarlo con botón de WhatsApp
+    // Mostrar servicios guardados
+    function mostrarServicios() {
+      lista.innerHTML = "";
+      const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+      servicios.forEach(s => {
+        const div = document.createElement("div");
+        div.classList.add("servicio");
+        div.innerHTML = `
+          <h3>${s.nombre}</h3>
+          <p>Precio: ${s.precio}</p>
+          <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20${encodeURIComponent(s.nombre)}"
+             class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
+        `;
+        lista.appendChild(div);
+      });
+    }
+
+    mostrarServicios();
+
+    // Guardar servicio en localStorage
     form.onsubmit = (e) => {
       e.preventDefault();
       const nombre = document.getElementById("nombre").value;
       const precio = document.getElementById("precio").value;
 
-      const servicio = document.createElement("div");
-      servicio.classList.add("servicio");
-      servicio.innerHTML = `
-        <h3>${nombre}</h3>
-        <p>Precio: ${precio}</p>
-        <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20el%20servicio%20de%20${encodeURIComponent(nombre)}"
-           class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
-      `;
-      lista.appendChild(servicio);
+      const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+      servicios.push({ nombre, precio });
+      localStorage.setItem("servicios", JSON.stringify(servicios));
 
+      mostrarServicios();
       modal.style.display = "none";
       form.reset();
     };
