@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Servicios de Software</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
@@ -19,24 +20,28 @@
 
   <section class="servicios">
     <h2>Servicios de Software</h2>
-    <div class="cards">
-      <div class="card desbloqueo">
-        🔓 Desbloqueo
-        <p>Precio: $XX</p>
-      </div>
-      <div class="card flasheo">
-        💾 Servicio de Flasheo
-        <p>Precio: $XX</p>
-      </div>
-      <div class="card apps">
-        📱 Actualización de apps (iPhone & Android)
-        <p>Precio: $XX</p>
-      </div>
-    </div>
+    <div id="lista-servicios" class="cards"></div>
   </section>
 
   <footer>
     <p>© 2026 SmartFix Solutions</p>
   </footer>
+
+  <script>
+    const lista = document.getElementById("lista-servicios");
+    const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+
+    servicios.forEach(s => {
+      const div = document.createElement("div");
+      div.classList.add("card");
+      div.innerHTML = `
+        <h3>${s.nombre}</h3>
+        <p>Precio: ${s.precio}</p>
+        <a href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20información%20sobre%20${encodeURIComponent(s.nombre)}"
+           class="btn-whatsapp" target="_blank">📱 Consultar por WhatsApp</a>
+      `;
+      lista.appendChild(div);
+    });
+  </script>
 </body>
 </html>
