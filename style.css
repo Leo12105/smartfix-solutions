@@ -6,7 +6,6 @@ body {
   color: white;
 }
 
-/* Navbar fija */
 nav {
   position: fixed;
   top: 0;
@@ -38,7 +37,7 @@ nav a {
   font-weight: 600;
 }
 
-/* Hero centrado y compacto */
+/* Hero */
 header {
   display: flex;
   justify-content: center;
@@ -79,7 +78,7 @@ header {
   box-shadow: 0 5px 12px rgba(0,0,0,0.4);
 }
 
-/* Sección servicios */
+/* Servicios */
 .servicios {
   padding: 30px 15px;
   text-align: center;
@@ -108,7 +107,7 @@ header {
 /* Mini‑tarjetas internas */
 .subcards {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* dos columnas */
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 15px;
 }
@@ -139,7 +138,7 @@ header {
 
 .subcard.apps {
   background: #ffc107; /* amarillo */
-  color: #333;         /* texto oscuro para contraste */
+  color: #333;
 }
 
 /* Contacto */
@@ -173,4 +172,54 @@ footer {
   padding: 12px;
   text-align: center;
   font-size: 13px;
+}
+
+/* 📱 Ajustes para móviles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav h1 {
+    font-size: 18px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .subcards {
+    grid-template-columns: 1fr; /* una sola columna en móvil */
+  }
+
+  .subcard {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .contacto {
+    padding: 20px 10px;
+  }
 }
