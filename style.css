@@ -1,231 +1,141 @@
-/* Estilo general */
-body {
+/* Reset básico */
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #0077cc, #00cc88);
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Navbar fija */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+/* Tipografía y colores generales */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  background: #222;
+  color: #fff;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  z-index: 1000;
 }
 
-nav h1 {
-  font-size: 20px;
-  margin: 0;
+header h1 {
+  font-size: 1.5rem;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
 }
 
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff6600;
 }
 
 /* Hero */
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 85vh;
-  text-align: center;
-  padding: 0 15px;
-}
-
 .hero {
-  background: rgba(0,0,0,0.3);
-  border-radius: 12px;
-  padding: 25px 20px;
-  margin-top: 70px;
+  background: linear-gradient(to right, #0077cc, #00aaff);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
 }
 
 .hero h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 16px;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
 }
 
 .btn {
-  background-color: #ffcc00;
-  color: #333;
-  padding: 10px 18px;
-  border-radius: 8px;
+  background: #ff6600;
+  color: #fff;
+  padding: 12px 25px;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+  background: #e65c00;
 }
 
-/* Sección servicios */
-.servicios {
-  padding: 30px 15px;
+/* Sección de servicios */
+#servicios {
+  padding: 50px 20px;
   text-align: center;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 15px;
+#servicios h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
 }
 
-.card {
-  background: rgba(255,255,255,0.1);
-  padding: 18px;
-  border-radius: 10px;
-  font-size: 16px;
-  width: 280px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
-}
-
-/* Mini‑tarjetas internas */
-.subcards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.subcard {
-  padding: 12px;
+.servicio {
+  background: #fff;
+  margin: 15px auto;
+  padding: 20px;
+  max-width: 400px;
   border-radius: 8px;
-  font-size: 15px;
-  text-align: center;
-  font-weight: 600;
-  color: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-.subcard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Colores personalizados */
-.subcard.desbloqueo {
-  background: #28a745;
-}
-
-.subcard.flasheo {
-  background: #007bff;
-}
-
-.subcard.apps {
-  background: #ffc107;
-  color: #333;
+.servicio:hover {
+  transform: translateY(-5px);
 }
 
 /* Contacto */
-.contacto {
-  padding: 30px 15px;
+#contacto {
+  background: #0077cc;
+  color: #fff;
+  padding: 50px 20px;
   text-align: center;
 }
 
-.btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 12px;
+#contacto h2 {
+  margin-bottom: 20px;
 }
 
-.btn-whatsapp:hover {
-  background-color: #128C7E;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+#contacto p {
+  margin: 10px 0;
 }
 
 /* Footer */
 footer {
-  background: rgba(0,0,0,0.3);
-  padding: 12px;
+  background: #222;
+  color: #fff;
   text-align: center;
-  font-size: 13px;
+  padding: 15px;
+  font-size: 0.9rem;
 }
 
-/* 📱 Ajustes para móviles */
+/* Responsivo */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
-  }
-
-  nav h1 {
-    font-size: 18px;
-  }
-
   nav ul {
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
   }
 
   .hero h2 {
-    font-size: 22px;
+    font-size: 2rem;
   }
 
   .hero p {
-    font-size: 14px;
-  }
-
-  .cards {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .card {
-    width: 100%;
-    font-size: 15px;
-    padding: 15px;
-  }
-
-  .subcards {
-    grid-template-columns: 1fr; /* una sola columna en móvil */
-  }
-
-  .subcard {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .contacto {
-    padding: 20px 10px;
+    font-size: 1rem;
   }
 }
