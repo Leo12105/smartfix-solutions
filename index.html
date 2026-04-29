@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DR CELL | Reparación de Software y Hardware Móvil en Marianao, La Habana</title>
 
-  <meta name="description" content="DR CELL - Servicio técnico de reparación de celulares en Marianao, La Habana. Pantallas, baterías, puertos de carga, microsoldaduras, FRP, flasheos, desbloqueos y más. Llama al +53 56194280.">
-  <meta name="keywords" content="reparación celulares, DR CELL, arreglar teléfono, pantalla rota, cambio batería, desbloqueo celular, FRP, flasheo, Marianao, La Habana, Cuba, servicio técnico móvil">
+  <meta name="description" content="DR CELL - Servicio técnico de reparación de celulares en Marianao, La Habana. Pantallas, baterías, puertos de carga, microsoldaduras, FRP, flasheos, desbloqueos y más.">
+  <meta name="keywords" content="reparación celulares, DR CELL, arreglar teléfono, pantalla rota, cambio batería, desbloqueo celular, FRP, flasheo, Marianao, La Habana, Cuba">
   <meta name="author" content="DR CELL">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0a0a0f">
@@ -16,10 +16,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://leo12105.github.io/DR-CELL-/">
   <meta property="og:image" content="https://leo12105.github.io/DR-CELL-/preview.png">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DR CELL | Reparación Móvil">
-  <meta name="twitter:description" content="Reparación profesional de celulares en Marianao, La Habana.">
 
   <link rel="canonical" href="https://leo12105.github.io/DR-CELL-/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +48,6 @@
 
     :root {
       --bg: #0a0a0f;
-      --bg-2: #0d0d15;
       --card: #12121c;
       --primary: #00f0ff;
       --neon-pink: #ff00e5;
@@ -62,14 +57,12 @@
       --neon-orange: #ff6b00;
       --text: #ffffff;
       --muted: #8a8fa8;
-      --success: #00ff88;
       --danger: #ff3860;
       --border: rgba(0, 240, 255, 0.08);
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       --radius: 18px;
       --transition: 0.3s ease;
       --gradient: linear-gradient(135deg, #00f0ff 0%, #b000ff 50%, #ff00e5 100%);
-      --gradient-2: linear-gradient(135deg, #00f0ff 0%, #00ff88 100%);
     }
 
     html, body {
@@ -81,84 +74,70 @@
       line-height: 1.6;
     }
 
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
-    .container {
-      width: min(1150px, 92%);
-      margin: 0 auto;
-    }
+    .container { width: min(1100px, 90%); margin: 0 auto; }
 
-    /* ===== FONDO NEÓN ===== */
+    /* FONDO */
     .bg-blur {
       position: fixed; inset: 0;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
     .bg-blur::before, .bg-blur::after {
       content: ""; position: absolute;
-      width: 500px; height: 500px;
+      width: 450px; height: 450px;
       border-radius: 50%; filter: blur(120px); opacity: 0.12;
     }
     .bg-blur::before { background: var(--neon-blue); top: -100px; left: -120px; }
     .bg-blur::after { background: var(--neon-pink); right: -100px; bottom: -80px; }
 
     .bg-glow-extra {
-      position: fixed; width: 400px; height: 400px;
-      border-radius: 50%; filter: blur(100px); opacity: 0.08;
+      position: fixed; width: 350px; height: 350px;
+      border-radius: 50%; filter: blur(100px); opacity: 0.07;
       background: var(--neon-purple);
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none; z-index: 0;
     }
 
-    /* ===== PANTALLAS ===== */
+    /* PANTALLAS */
     .pantalla {
-      position: fixed; inset: 0;
-      z-index: 1;
-      display: none;
-      flex-direction: column;
+      position: fixed; inset: 0; z-index: 1;
+      display: none; flex-direction: column;
     }
     .pantalla.activa {
       display: flex;
       animation: fadeIn 0.35s ease;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== BARRA SUPERIOR (subpáginas) ===== */
+    /* BARRA SUPERIOR */
     .top-bar {
-      height: 64px;
-      background: rgba(10, 10, 15, 0.94);
+      height: 60px;
+      background: rgba(10, 10, 15, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(0, 240, 255, 0.06);
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-      gap: 16px;
-      flex-shrink: 0;
-      z-index: 10;
+      display: flex; align-items: center;
+      padding: 0 20px; gap: 14px;
+      flex-shrink: 0; z-index: 10;
     }
-
     .back-btn {
-      width: 42px; height: 42px;
+      width: 40px; height: 40px;
       border: 1px solid rgba(0, 240, 255, 0.15);
       background: rgba(0, 240, 255, 0.06);
-      border-radius: 12px;
-      color: var(--primary);
-      font-size: 1.1rem;
-      cursor: pointer;
+      border-radius: 12px; color: var(--primary);
+      font-size: 1rem; cursor: pointer;
       display: grid; place-items: center;
       transition: var(--transition);
     }
     .back-btn:hover {
       background: rgba(0, 240, 255, 0.12);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
       transform: translateX(-2px);
     }
-
     .top-bar-title {
-      font-size: 1.15rem;
-      font-weight: 700;
+      font-size: 1.1rem; font-weight: 700;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -166,63 +145,61 @@
     }
 
     .sub-content {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 40px 0 60px;
+      flex: 1; overflow-y: auto; overflow-x: hidden;
+      padding: 30px 0 50px;
       -webkit-overflow-scrolling: touch;
     }
-
-    .sub-content::-webkit-scrollbar { width: 5px; }
+    .sub-content::-webkit-scrollbar { width: 4px; }
     .sub-content::-webkit-scrollbar-track { background: transparent; }
     .sub-content::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.2); border-radius: 10px; }
 
     /* ===== PÁGINA PRINCIPAL ===== */
     .main-screen {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 100%;
-      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    .main-screen::-webkit-scrollbar { width: 4px; }
+    .main-screen::-webkit-scrollbar-track { background: transparent; }
+    .main-screen::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.2); border-radius: 10px; }
+
+    .main-inner {
+      min-height: 100%;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 30px 0;
     }
 
-    .main-layout {
+    .hero-area {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
-      width: 100%;
+      margin-bottom: 40px;
     }
 
-    /* LADO IZQUIERDO - BRANDING */
-    .brand-side {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    /* BRANDING */
+    .brand-col { text-align: center; }
 
     .main-logo-icon {
-      width: 90px; height: 90px;
-      border-radius: 26px;
+      width: 80px; height: 80px;
+      border-radius: 22px;
       background: var(--gradient);
       display: grid; place-items: center;
-      font-size: 2.4rem;
-      color: white;
-      margin-bottom: 20px;
-      box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), 0 0 80px rgba(176, 0, 255, 0.15);
+      font-size: 2rem; color: white;
+      margin: 0 auto 16px;
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.3), 0 0 70px rgba(176, 0, 255, 0.15);
       animation: logoPulse 3s ease-in-out infinite;
     }
     @keyframes logoPulse {
-      0%,100% { box-shadow: 0 0 40px rgba(0,240,255,.3), 0 0 80px rgba(176,0,255,.15); }
-      50% { box-shadow: 0 0 60px rgba(0,240,255,.45), 0 0 100px rgba(176,0,255,.25); }
+      0%,100% { box-shadow: 0 0 35px rgba(0,240,255,.3), 0 0 70px rgba(176,0,255,.15); }
+      50% { box-shadow: 0 0 55px rgba(0,240,255,.45), 0 0 90px rgba(176,0,255,.25); }
     }
 
     .main-title {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800; letter-spacing: 1px; margin-bottom: 4px;
     }
     .main-title span {
       background: var(--gradient);
@@ -230,361 +207,464 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    .main-tagline {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
+    .main-tagline { color: var(--muted); font-size: 0.92rem; margin-bottom: 8px; }
     .main-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
       border: 1px solid rgba(0, 240, 255, 0.2);
       background: rgba(0, 240, 255, 0.06);
-      color: var(--primary);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-      margin-bottom: 24px;
+      color: var(--primary); border-radius: 999px;
+      font-size: 0.78rem; margin-bottom: 18px;
     }
 
-    .quick-contact {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      justify-content: center;
-    }
-
+    .quick-contact { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .qc-btn {
-      display: inline-flex;
-      align-items: center; gap: 8px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px; border-radius: 999px;
+      font-weight: 600; font-size: 0.88rem;
       transition: var(--transition);
       border: none; cursor: pointer;
       font-family: 'Poppins', sans-serif;
     }
-
     .qc-call {
-      background: var(--gradient);
-      color: white;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+      background: var(--gradient); color: white;
+      box-shadow: 0 0 18px rgba(0, 240, 255, 0.2);
     }
-    .qc-call:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.35);
-    }
-
+    .qc-call:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(0, 240, 255, 0.35); }
     .qc-wa {
       background: linear-gradient(135deg, #00ff88, #00cc6a);
       color: #0a0a0f;
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+      box-shadow: 0 0 18px rgba(0, 255, 136, 0.2);
     }
-    .qc-wa:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.35);
+    .qc-wa:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(0, 255, 136, 0.35); }
+
+    /* TELÉFONO FLOTANTE */
+    .phone-col { display: flex; align-items: center; justify-content: center; }
+
+    .phone-scene {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 420px;
+      perspective: 1200px;
     }
 
-    /* LADO DERECHO - MENÚ DE BOTONES */
-    .menu-side {
-      display: flex;
-      flex-direction: column;
+    @keyframes phoneFloat {
+      0%,100% { transform: translateY(0) rotateY(-4deg) rotateX(2deg); }
+      25% { transform: translateY(-12px) rotateY(-2deg) rotateX(0); }
+      50% { transform: translateY(-5px) rotateY(4deg) rotateX(-2deg); }
+      75% { transform: translateY(-16px) rotateY(2deg) rotateX(1deg); }
+    }
+
+    .phone-shadow {
+      position: absolute; bottom: 8px;
+      width: 150px; height: 25px;
+      background: radial-gradient(ellipse, rgba(0,240,255,.18) 0%, rgba(176,0,255,.08) 50%, transparent 70%);
+      border-radius: 50%;
+      animation: shadowPulse 4s ease-in-out infinite;
+    }
+    @keyframes shadowPulse { 0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)} }
+
+    .phone {
+      position: relative;
+      width: 200px; height: 410px;
+      background: linear-gradient(145deg, #1a1a2e 0%, #0d0d1a 40%, #1a1a2e 100%);
+      border-radius: 38px;
+      border: 2px solid rgba(0, 240, 255, 0.15);
+      box-shadow:
+        0 0 0 1px rgba(0,240,255,.05),
+        0 20px 50px rgba(0,0,0,.5),
+        0 0 50px rgba(0,240,255,.06),
+        0 0 100px rgba(176,0,255,.04),
+        inset 0 1px 0 rgba(255,255,255,.1);
+      animation: phoneFloat 6s ease-in-out infinite;
+      z-index: 2; overflow: hidden;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(105deg, transparent 40%, rgba(0,240,255,.03) 45%, rgba(0,240,255,.06) 50%, rgba(0,240,255,.03) 55%, transparent 60%);
+      animation: shimmer 5s ease-in-out infinite;
+      z-index: 10;
+    }
+    @keyframes shimmer { 0%{transform:translateX(-100%)}100%{transform:translateX(100%)} }
+
+    .phone::after {
+      content: "";
+      position: absolute; inset: -1px;
+      border-radius: 39px;
+      background: linear-gradient(160deg, rgba(0,240,255,.12), transparent 40%, transparent 60%, rgba(176,0,255,.08));
+      z-index: 1;
+    }
+
+    .phone-screen {
+      position: absolute;
+      top: 7px; left: 7px; right: 7px; bottom: 7px;
+      background: linear-gradient(160deg, #0a0a18 0%, #080812 50%, #0c0c20 100%);
+      border-radius: 32px; overflow: hidden; z-index: 3;
+    }
+
+    .screen-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(0,240,255,.08) 0%, transparent 60%);
+      animation: screenGlow 4s ease-in-out infinite; z-index: 4;
+    }
+    @keyframes screenGlow { 0%,100%{opacity:.5}50%{opacity:1} }
+
+    .dynamic-island {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 24px;
+      background: #000; border-radius: 20px; z-index: 8;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,.5);
+    }
+    .dynamic-island::before {
+      content: ""; width: 7px; height: 7px;
+      background: radial-gradient(circle, #1a2744 40%, #0d1526 100%);
+      border-radius: 50%;
+      box-shadow: inset 0 0 2px rgba(0,240,255,.3);
+    }
+
+    .screen-content {
+      position: relative; z-index: 5;
+      padding: 50px 16px 16px;
+      height: 100%; display: flex; flex-direction: column;
+    }
+
+    .status-bar {
+      display: flex; justify-content: space-between;
+      align-items: center; font-size: 10px;
+      color: rgba(255,255,255,.6); margin-bottom: 20px; padding: 0 4px;
+    }
+    .status-bar .time { font-weight: 600; }
+    .status-icons { display: flex; gap: 4px; font-size: 9px; }
+
+    .screen-logo { text-align: center; margin-bottom: 18px; }
+    .screen-logo-icon {
+      width: 44px; height: 44px; margin: 0 auto 8px;
+      background: var(--gradient); border-radius: 14px;
+      display: grid; place-items: center;
+      font-size: 18px; color: white;
+      box-shadow: 0 0 20px rgba(0,240,255,.3), 0 0 40px rgba(176,0,255,.15);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100%{box-shadow:0 0 20px rgba(0,240,255,.3),0 0 40px rgba(176,0,255,.15)}
+      50%{box-shadow:0 0 30px rgba(0,240,255,.45),0 0 60px rgba(176,0,255,.25)}
+    }
+    .screen-logo h4 { font-size: 14px; font-weight: 800; letter-spacing: 1px; }
+    .screen-logo h4 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .screen-logo p { font-size: 8px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+
+    .screen-notifs { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .screen-notif {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(0,240,255,.06);
+      border-radius: 12px; padding: 10px 12px;
+      display: flex; align-items: center; gap: 10px;
+      animation: notifSlide 4s ease-in-out infinite;
+    }
+    @keyframes notifSlide { 0%,100%{transform:translateX(0);opacity:1}50%{transform:translateX(3px);opacity:.85} }
+    .screen-notif:nth-child(2){animation-delay:1s}
+    .screen-notif:nth-child(3){animation-delay:2s}
+
+    .notif-icon {
+      width: 30px; height: 30px; min-width: 30px;
+      border-radius: 8px; display: grid; place-items: center; font-size: 12px;
+    }
+    .notif-blue { background: rgba(0,240,255,.12); color: var(--neon-blue); }
+    .notif-green { background: rgba(0,255,136,.12); color: var(--neon-green); }
+    .notif-orange { background: rgba(255,107,0,.12); color: var(--neon-orange); }
+    .notif-text { font-size: 10px; font-weight: 600; }
+    .notif-sub { font-size: 8px; color: var(--muted); }
+
+    .screen-bottom { display: flex; justify-content: center; padding-top: 12px; }
+    .home-bar { width: 80px; height: 4px; background: rgba(255,255,255,.2); border-radius: 4px; }
+
+    .side-btn { position: absolute; background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.03)); border-radius: 3px; z-index: 1; }
+    .btn-power { right: -3px; top: 100px; width: 3px; height: 45px; }
+    .btn-vol-up { left: -3px; top: 85px; width: 3px; height: 30px; }
+    .btn-vol-down { left: -3px; top: 125px; width: 3px; height: 30px; }
+    .btn-silent { left: -3px; top: 60px; width: 3px; height: 16px; }
+
+    .orbit-particle { position: absolute; border-radius: 50%; z-index: 1; }
+    .orbit-1 { width: 7px; height: 7px; background: var(--neon-blue); box-shadow: 0 0 12px var(--neon-blue); animation: orbit 10s linear infinite; top: 50%; left: 50%; margin: -3.5px; }
+    .orbit-2 { width: 5px; height: 5px; background: var(--neon-green); box-shadow: 0 0 12px var(--neon-green); animation: orbit 14s linear infinite reverse; top: 50%; left: 50%; margin: -2.5px; }
+    .orbit-3 { width: 4px; height: 4px; background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); animation: orbit 18s linear infinite; top: 50%; left: 50%; margin: -2px; }
+    @keyframes orbit { 0%{transform:rotate(0) translateX(140px) rotate(0)}100%{transform:rotate(360deg) translateX(140px) rotate(-360deg)} }
+
+    /* MENÚ DE BOTONES */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
     .menu-card {
       background: var(--card);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(0, 240, 255, 0.06);
       border-radius: 16px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
+      padding: 22px 16px;
+      text-align: center;
       cursor: pointer;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(0, 240, 255, 0.06);
     }
-
     .menu-card::before {
       content: "";
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--gradient);
-      opacity: 0;
-      transition: var(--transition);
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gradient);
+      opacity: 0; transition: var(--transition);
     }
-
     .menu-card:hover {
-      transform: translateX(6px);
-      border-color: rgba(0, 240, 255, 0.18);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 240, 255, 0.05);
+      transform: translateY(-5px);
+      border-color: rgba(0, 240, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.3), 0 0 20px rgba(0,240,255,.05);
     }
     .menu-card:hover::before { opacity: 1; }
-    .menu-card:active { transform: translateX(6px) scale(0.98); }
+    .menu-card:active { transform: translateY(-2px) scale(0.97); }
 
     .menu-icon {
-      width: 54px; height: 54px;
-      min-width: 54px;
+      width: 52px; height: 52px;
       border-radius: 14px;
       display: grid; place-items: center;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      margin: 0 auto 12px;
       transition: var(--transition);
     }
+    .mi-blue { background: rgba(0,240,255,.1); color: var(--neon-blue); }
+    .mi-green { background: rgba(0,255,136,.1); color: var(--neon-green); }
+    .mi-purple { background: rgba(176,0,255,.1); color: var(--neon-purple); }
+    .mi-orange { background: rgba(255,107,0,.1); color: var(--neon-orange); }
 
-    .mi-blue { background: rgba(0, 240, 255, 0.1); color: var(--neon-blue); }
-    .mi-green { background: rgba(0, 255, 136, 0.1); color: var(--neon-green); }
-    .mi-purple { background: rgba(176, 0, 255, 0.1); color: var(--neon-purple); }
-    .mi-orange { background: rgba(255, 107, 0, 0.1); color: var(--neon-orange); }
-    .mi-pink { background: rgba(255, 0, 229, 0.1); color: var(--neon-pink); }
+    .menu-card:hover .mi-blue { box-shadow: 0 0 18px rgba(0,240,255,.25); }
+    .menu-card:hover .mi-green { box-shadow: 0 0 18px rgba(0,255,136,.25); }
+    .menu-card:hover .mi-purple { box-shadow: 0 0 18px rgba(176,0,255,.25); }
+    .menu-card:hover .mi-orange { box-shadow: 0 0 18px rgba(255,107,0,.25); }
 
-    .menu-card:hover .mi-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
-    .menu-card:hover .mi-green { box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); }
-    .menu-card:hover .mi-purple { box-shadow: 0 0 20px rgba(176, 0, 255, 0.2); }
-    .menu-card:hover .mi-orange { box-shadow: 0 0 20px rgba(255, 107, 0, 0.2); }
-    .menu-card:hover .mi-pink { box-shadow: 0 0 20px rgba(255, 0, 229, 0.2); }
-
-    .menu-info { flex: 1; }
-    .menu-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
-    .menu-info p { color: var(--muted); font-size: 0.82rem; }
-
-    .menu-arrow {
-      color: var(--muted);
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .menu-card:hover .menu-arrow {
-      color: var(--primary);
-      transform: translateX(4px);
-    }
+    .menu-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .menu-card p { color: var(--muted); font-size: 0.75rem; line-height: 1.4; }
 
     /* ===== SECCIONES INTERNAS ===== */
-    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header { text-align: center; margin-bottom: 36px; }
     .section-header .mini {
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-size: .85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      display: inline-block;
-      font-weight: 700;
+      font-size: .82rem; text-transform: uppercase;
+      letter-spacing: 2px; margin-bottom: 8px;
+      display: inline-block; font-weight: 700;
     }
-    .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 10px; font-weight: 800; }
-    .section-header p { color: var(--muted); max-width: 580px; margin: 0 auto; }
+    .section-header h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 8px; font-weight: 800; }
+    .section-header p { color: var(--muted); max-width: 520px; margin: 0 auto; font-size: 0.92rem; }
 
-    /* SERVICIOS */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 16px;
     }
-
     .service-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px 20px;
+      padding: 22px 18px;
       transition: var(--transition);
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .service-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
       background: var(--gradient);
-      opacity: 0;
-      transition: var(--transition);
+      opacity: 0; transition: var(--transition);
     }
     .service-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0, 240, 255, 0.2);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,240,255,0.05);
+      border-color: rgba(0,240,255,.2);
     }
     .service-card:hover::before { opacity: 1; }
-
     .service-icon {
-      width: 54px; height: 54px;
+      width: 50px; height: 50px;
       border-radius: 14px;
-      background: rgba(0, 240, 255, 0.08);
+      background: rgba(0,240,255,.08);
       color: var(--neon-blue);
       display: grid; place-items: center;
-      font-size: 1.3rem;
-      margin-bottom: 14px;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.08);
+      font-size: 1.2rem; margin-bottom: 12px;
     }
-    .service-card h3 { margin-bottom: 6px; font-size: 1rem; }
-    .service-card p { color: var(--muted); font-size: 0.85rem; }
+    .service-card h3 { margin-bottom: 6px; font-size: 0.95rem; }
+    .service-card p { color: var(--muted); font-size: 0.82rem; }
 
-    /* HORARIO */
     .info-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      padding: 26px; box-shadow: var(--shadow);
     }
     .info-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 18px;
+      font-size: 1.1rem; margin-bottom: 16px;
       display: flex; align-items: center; gap: 10px;
     }
-    .info-card h3 i { color: var(--primary); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+    .info-card h3 i { color: var(--primary); }
 
-    .schedule-list { display: flex; flex-direction: column; gap: 14px; }
+    .schedule-list { display: flex; flex-direction: column; gap: 12px; }
     .schedule-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(0, 240, 255, 0.05);
+      display: flex; justify-content: space-between; gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0,240,255,.05);
       color: var(--muted);
     }
     .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .open { color: var(--neon-green); font-weight: 600; text-shadow: 0 0 10px rgba(0,255,136,.3); }
-    .closed { color: var(--danger); font-weight: 600; text-shadow: 0 0 10px rgba(255,56,96,.3); }
+    .open { color: var(--neon-green); font-weight: 600; }
+    .closed { color: var(--danger); font-weight: 600; }
 
-    /* DIRECCIÓN */
     .direccion-grid {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 24px;
-      align-items: start;
+      gap: 20px; align-items: start;
     }
-
-    .address-details {
-      display: flex; flex-direction: column; gap: 12px;
-      margin-bottom: 20px;
-    }
-
+    .address-details { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
     .address-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 12px 14px;
-      background: rgba(0, 240, 255, 0.03);
-      border: 1px solid rgba(0, 240, 255, 0.06);
-      border-radius: 12px;
-      transition: var(--transition);
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 14px;
+      background: rgba(0,240,255,.03);
+      border: 1px solid rgba(0,240,255,.06);
+      border-radius: 12px; transition: var(--transition);
     }
-    .address-item:hover {
-      border-color: rgba(0, 240, 255, 0.18);
-      transform: translateX(4px);
-    }
+    .address-item:hover { border-color: rgba(0,240,255,.18); transform: translateX(4px); }
     .address-item i {
-      width: 38px; height: 38px; min-width: 38px;
+      width: 36px; height: 36px; min-width: 36px;
       border-radius: 10px;
-      background: rgba(0, 240, 255, 0.08);
+      background: rgba(0,240,255,.08);
       color: var(--primary);
-      display: grid; place-items: center;
-      font-size: 0.95rem;
+      display: grid; place-items: center; font-size: 0.9rem;
     }
-    .address-item span { display: block; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .address-item strong { display: block; font-size: 0.92rem; font-weight: 600; }
+    .address-item span { display: block; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .address-item strong { display: block; font-size: 0.88rem; font-weight: 600; }
 
     .location-btn {
-      display: inline-flex;
-      align-items: center; gap: 10px;
-      background: var(--gradient);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      transition: var(--transition);
-      margin-top: 10px;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gradient); color: white;
+      padding: 11px 18px; border-radius: 999px;
+      font-weight: 600; transition: var(--transition);
+      margin-top: 8px; font-size: 0.9rem;
     }
-    .location-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-    }
+    .location-btn:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(0,240,255,.3); }
 
     .map-container {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(0, 240, 255, 0.1);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.06), 0 15px 40px rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid rgba(0,240,255,.1);
+      box-shadow: 0 0 25px rgba(0,240,255,.06), 0 12px 35px rgba(0,0,0,.4);
     }
-    .map-wrapper { width: 100%; height: 400px; }
+    .map-wrapper { width: 100%; height: 380px; }
     .map-wrapper iframe {
-      width: 100%; height: 100%;
-      border: 0; border-radius: var(--radius);
-      filter: invert(90%) hue-rotate(180deg) saturate(0.8) brightness(0.9);
+      width: 100%; height: 100%; border: 0;
+      border-radius: var(--radius);
+      filter: invert(90%) hue-rotate(180deg) saturate(.8) brightness(.9);
     }
 
-    /* CONTACTO */
     .contact-links { display: flex; flex-direction: column; gap: 14px; }
     .contact-link {
       display: flex; align-items: center; gap: 14px;
-      background: rgba(0, 240, 255, 0.02);
-      border: 1px solid rgba(0, 240, 255, 0.06);
-      padding: 18px;
-      border-radius: 14px;
-      color: white;
-      transition: var(--transition);
+      background: rgba(0,240,255,.02);
+      border: 1px solid rgba(0,240,255,.06);
+      padding: 16px; border-radius: 14px;
+      color: white; transition: var(--transition);
     }
     .contact-link:hover {
-      border-color: rgba(0, 240, 255, 0.2);
+      border-color: rgba(0,240,255,.2);
       transform: translateX(4px);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
     }
     .contact-link i {
-      width: 48px; height: 48px;
+      width: 46px; height: 46px;
       border-radius: 14px;
-      display: grid; place-items: center;
-      font-size: 1.2rem;
+      display: grid; place-items: center; font-size: 1.15rem;
     }
-    .cl-phone { background: rgba(0, 240, 255, 0.08); color: var(--primary); }
-    .cl-wa { background: rgba(0, 255, 136, 0.08); color: var(--neon-green); }
-    .contact-link span { display: block; color: var(--muted); font-size: .88rem; }
-    .contact-link strong { color: white; font-size: 1.05rem; }
+    .cl-phone { background: rgba(0,240,255,.08); color: var(--primary); }
+    .cl-wa { background: rgba(0,255,136,.08); color: var(--neon-green); }
+    .contact-link span { display: block; color: var(--muted); font-size: .85rem; }
+    .contact-link strong { color: white; font-size: 1rem; }
 
-    /* FOOTER */
     .footer {
-      padding: 24px 0;
-      border-top: 1px solid rgba(0, 240, 255, 0.05);
-      text-align: center;
-      color: var(--muted);
-      font-size: .85rem;
-      margin-top: 40px;
+      padding: 20px 0; border-top: 1px solid rgba(0,240,255,.05);
+      text-align: center; color: var(--muted); font-size: .82rem; margin-top: 30px;
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .main-layout {
+      .hero-area {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
       }
-      .brand-side { order: 1; }
-      .menu-side { order: 2; }
-      .main-title { font-size: 2.4rem; }
-      .main-logo-icon { width: 72px; height: 72px; font-size: 2rem; }
+      .brand-col { order: 1; }
+      .phone-col { order: 2; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .direccion-grid { grid-template-columns: 1fr; }
       .map-wrapper { height: 300px; }
+      .phone { width: 170px; height: 350px; border-radius: 34px; }
+      .phone-screen { border-radius: 28px; }
+      .phone-scene { min-height: 360px; }
+      @keyframes orbit { 0%{transform:rotate(0) translateX(120px) rotate(0)}100%{transform:rotate(360deg) translateX(120px) rotate(-360deg)} }
     }
 
     @media (max-width: 600px) {
-      .main-screen { padding: 20px 0; }
-      .main-title { font-size: 2rem; }
-      .main-logo-icon { width: 64px; height: 64px; font-size: 1.7rem; border-radius: 20px; }
-      .menu-card { padding: 16px 18px; gap: 14px; }
-      .menu-icon { width: 46px; height: 46px; min-width: 46px; font-size: 1.1rem; border-radius: 12px; }
-      .menu-info h3 { font-size: 0.95rem; }
+      .main-inner { padding: 20px 0; }
+      .hero-area { gap: 10px; margin-bottom: 20px; }
+      .main-logo-icon { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 18px; }
+      .main-title { font-size: 1.8rem; }
+      .main-tagline { font-size: 0.82rem; }
+      .main-badge { font-size: 0.72rem; padding: 5px 12px; }
+      .quick-contact { gap: 8px; }
+      .qc-btn { padding: 10px 16px; font-size: 0.82rem; }
+
+      .phone-scene { min-height: 300px; }
+      .phone { width: 140px; height: 290px; border-radius: 28px; }
+      .phone-screen { top: 6px; left: 6px; right: 6px; bottom: 6px; border-radius: 24px; }
+      .dynamic-island { width: 65px; height: 20px; top: 10px; }
+      .screen-content { padding: 42px 12px 12px; }
+      .screen-logo-icon { width: 36px; height: 36px; font-size: 15px; border-radius: 11px; }
+      .screen-logo h4 { font-size: 12px; }
+      .screen-logo p { font-size: 7px; }
+      .screen-logo { margin-bottom: 14px; }
+      .screen-notifs { gap: 6px; }
+      .screen-notif { padding: 8px 10px; gap: 8px; border-radius: 10px; }
+      .notif-icon { width: 26px; height: 26px; min-width: 26px; font-size: 10px; border-radius: 7px; }
+      .notif-text { font-size: 9px; }
+      .notif-sub { font-size: 7px; }
+      .status-bar { font-size: 9px; margin-bottom: 14px; }
+      .home-bar { width: 60px; height: 3px; }
+
+      .orbit-particle { display: none; }
+      @keyframes orbit { 0%{transform:rotate(0) translateX(95px) rotate(0)}100%{transform:rotate(360deg) translateX(95px) rotate(-360deg)} }
+
+      .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .menu-icon { width: 44px; height: 44px; font-size: 1rem; border-radius: 12px; }
+      .menu-card { padding: 16px 12px; border-radius: 14px; }
+      .menu-card h3 { font-size: 0.85rem; }
+      .menu-card p { font-size: 0.7rem; }
+
       .services-grid { grid-template-columns: 1fr; }
-      .quick-contact { flex-direction: column; }
-      .qc-btn { justify-content: center; }
-      .top-bar { padding: 0 16px; }
-      .sub-content { padding: 24px 0 40px; }
-      .map-wrapper { height: 260px; }
+      .sub-content { padding: 20px 0 40px; }
+      .section-header { margin-bottom: 24px; }
+      .map-wrapper { height: 250px; }
+    }
+
+    @media (max-width: 380px) {
+      .phone { width: 120px; height: 250px; border-radius: 24px; }
+      .phone-screen { border-radius: 20px; top: 5px; left: 5px; right: 5px; bottom: 5px; }
+      .screen-content { padding: 36px 10px 10px; }
+      .phone-scene { min-height: 260px; }
+      .dynamic-island { width: 55px; height: 18px; top: 8px; }
+      .screen-notif:nth-child(3) { display: none; }
     }
   </style>
 </head>
@@ -596,65 +676,97 @@
   <!-- ===== PANTALLA PRINCIPAL ===== -->
   <div class="pantalla activa" id="main">
     <div class="main-screen">
-      <div class="container main-layout">
+      <div class="main-inner">
+        <div class="container">
 
-        <!-- BRANDING -->
-        <div class="brand-side">
-          <div class="main-logo-icon">
-            <i class="fas fa-mobile-screen-button"></i>
-          </div>
-          <h1 class="main-title">DR <span>CELL</span></h1>
-          <p class="main-tagline">Reparación de Software y Hardware Móvil</p>
-          <div class="main-badge">
-            <i class="fas fa-map-marker-alt"></i> Marianao, La Habana
-          </div>
-          <div class="quick-contact">
-            <a href="tel:+5356194280" class="qc-btn qc-call">
-              <i class="fas fa-phone"></i> Llamar ahora
-            </a>
-            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20informaci%C3%B3n" target="_blank" class="qc-btn qc-wa">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <!-- MENÚ DE NAVEGACIÓN -->
-        <div class="menu-side">
-          <div class="menu-card" onclick="irA('servicios')">
-            <div class="menu-icon mi-blue"><i class="fas fa-screwdriver-wrench"></i></div>
-            <div class="menu-info">
-              <h3>Servicios</h3>
-              <p>Pantallas, baterías, FRP, flasheos y más</p>
+          <div class="hero-area">
+            <!-- BRANDING -->
+            <div class="brand-col">
+              <div class="main-logo-icon"><i class="fas fa-mobile-screen-button"></i></div>
+              <h1 class="main-title">DR <span>CELL</span></h1>
+              <p class="main-tagline">Reparación de Software y Hardware Móvil</p>
+              <div class="main-badge"><i class="fas fa-map-marker-alt"></i> Marianao, La Habana</div>
+              <div class="quick-contact">
+                <a href="tel:+5356194280" class="qc-btn qc-call"><i class="fas fa-phone"></i> Llamar</a>
+                <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20informaci%C3%B3n" target="_blank" class="qc-btn qc-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+              </div>
             </div>
-            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <!-- TELÉFONO FLOTANTE -->
+            <div class="phone-col">
+              <div class="phone-scene">
+                <div class="orbit-particle orbit-1"></div>
+                <div class="orbit-particle orbit-2"></div>
+                <div class="orbit-particle orbit-3"></div>
+                <div class="phone-shadow"></div>
+                <div class="phone">
+                  <div class="side-btn btn-power"></div>
+                  <div class="side-btn btn-vol-up"></div>
+                  <div class="side-btn btn-vol-down"></div>
+                  <div class="side-btn btn-silent"></div>
+                  <div class="phone-screen">
+                    <div class="screen-glow"></div>
+                    <div class="dynamic-island"></div>
+                    <div class="screen-content">
+                      <div class="status-bar">
+                        <span class="time">10:00</span>
+                        <div class="status-icons">
+                          <i class="fas fa-signal"></i>
+                          <i class="fas fa-wifi"></i>
+                          <i class="fas fa-battery-full"></i>
+                        </div>
+                      </div>
+                      <div class="screen-logo">
+                        <div class="screen-logo-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                        <h4>DR <span>CELL</span></h4>
+                        <p>Servicio técnico</p>
+                      </div>
+                      <div class="screen-notifs">
+                        <div class="screen-notif">
+                          <div class="notif-icon notif-blue"><i class="fas fa-mobile-screen"></i></div>
+                          <div><div class="notif-text">Pantalla lista</div><div class="notif-sub">Reparación completada</div></div>
+                        </div>
+                        <div class="screen-notif">
+                          <div class="notif-icon notif-green"><i class="fas fa-check-circle"></i></div>
+                          <div><div class="notif-text">Batería al 100%</div><div class="notif-sub">Cambio exitoso</div></div>
+                        </div>
+                        <div class="screen-notif">
+                          <div class="notif-icon notif-orange"><i class="fas fa-unlock"></i></div>
+                          <div><div class="notif-text">Equipo desbloqueado</div><div class="notif-sub">Listo para usar</div></div>
+                        </div>
+                      </div>
+                      <div class="screen-bottom"><div class="home-bar"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="menu-card" onclick="irA('horario')">
-            <div class="menu-icon mi-green"><i class="fas fa-clock"></i></div>
-            <div class="menu-info">
+          <!-- MENÚ DE NAVEGACIÓN -->
+          <div class="menu-grid">
+            <div class="menu-card" onclick="irA('servicios')">
+              <div class="menu-icon mi-blue"><i class="fas fa-screwdriver-wrench"></i></div>
+              <h3>Servicios</h3>
+              <p>Pantallas, baterías, FRP y más</p>
+            </div>
+            <div class="menu-card" onclick="irA('horario')">
+              <div class="menu-icon mi-green"><i class="fas fa-clock"></i></div>
               <h3>Horario</h3>
               <p>Días y horas de atención</p>
             </div>
-            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
-          </div>
-
-          <div class="menu-card" onclick="irA('direccion')">
-            <div class="menu-icon mi-purple"><i class="fas fa-location-dot"></i></div>
-            <div class="menu-info">
+            <div class="menu-card" onclick="irA('direccion')">
+              <div class="menu-icon mi-purple"><i class="fas fa-location-dot"></i></div>
               <h3>Dirección</h3>
               <p>Ubicación y mapa</p>
             </div>
-            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="menu-card" onclick="irA('contacto')">
+              <div class="menu-icon mi-orange"><i class="fas fa-address-book"></i></div>
+              <h3>Contacto</h3>
+              <p>Teléfono y WhatsApp</p>
+            </div>
           </div>
 
-          <div class="menu-card" onclick="irA('contacto')">
-            <div class="menu-icon mi-orange"><i class="fas fa-address-book"></i></div>
-            <div class="menu-info">
-              <h3>Contacto</h3>
-              <p>Teléfono y WhatsApp directo</p>
-            </div>
-            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
-          </div>
         </div>
       </div>
     </div>
@@ -671,18 +783,18 @@
         <div class="section-header">
           <span class="mini">Nuestros servicios</span>
           <h2>Lo que hacemos</h2>
-          <p>Reparaciones y soluciones técnicas para mantener tu móvil en perfecto estado.</p>
+          <p>Reparaciones y soluciones técnicas para tu móvil.</p>
         </div>
         <div class="services-grid">
-          <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-screen"></i></div><h3>Cambios de pantallas</h3><p>Reemplazo de pantallas dañadas con instalación profesional.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-battery-full"></i></div><h3>Cambio de baterías</h3><p>Mejora el rendimiento y autonomía de tu equipo.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-plug"></i></div><h3>Puertos de carga</h3><p>Reparamos o sustituimos conectores dañados.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-microchip"></i></div><h3>Microsoldaduras</h3><p>Trabajo técnico de precisión en placa y componentes.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-unlock-keyhole"></i></div><h3>Desbloqueos</h3><p>Soluciones para acceso, bloqueo y seguridad del equipo.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-shield-halved"></i></div><h3>FRP</h3><p>Eliminación de bloqueo FRP en equipos compatibles.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-rotate"></i></div><h3>Flasheos</h3><p>Actualización y reinstalación de sistema operativo.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-sim-card"></i></div><h3>Liberaciones</h3><p>Procesos para usar tu equipo con distintas redes.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-download"></i></div><h3>Apps para iPhone y Android</h3><p>Instalación y configuración de aplicaciones móviles.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-screen"></i></div><h3>Cambios de pantallas</h3><p>Reemplazo profesional de pantallas dañadas.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-battery-full"></i></div><h3>Cambio de baterías</h3><p>Mejora el rendimiento de tu equipo.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-plug"></i></div><h3>Puertos de carga</h3><p>Reparación de conectores dañados.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-microchip"></i></div><h3>Microsoldaduras</h3><p>Trabajo de precisión en placa.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-unlock-keyhole"></i></div><h3>Desbloqueos</h3><p>Soluciones de acceso y seguridad.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-shield-halved"></i></div><h3>FRP</h3><p>Eliminación de bloqueo FRP.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-rotate"></i></div><h3>Flasheos</h3><p>Reinstalación de sistema operativo.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-sim-card"></i></div><h3>Liberaciones</h3><p>Usa tu equipo con distintas redes.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-download"></i></div><h3>Apps iPhone y Android</h3><p>Instalación de aplicaciones.</p></div>
         </div>
       </div>
     </div>
@@ -699,9 +811,9 @@
         <div class="section-header">
           <span class="mini">Horario</span>
           <h2>Cuándo encontrarnos</h2>
-          <p>Estos son nuestros horarios de atención.</p>
+          <p>Nuestros horarios de atención.</p>
         </div>
-        <div class="info-card" style="max-width:550px;margin:0 auto;">
+        <div class="info-card" style="max-width:520px;margin:0 auto;">
           <h3><i class="fas fa-clock"></i> Horario de atención</h3>
           <div class="schedule-list">
             <div class="schedule-item"><span>Lunes a Viernes</span><span class="open">10:00 AM - 4:00 PM</span></div>
@@ -724,46 +836,28 @@
         <div class="section-header">
           <span class="mini">Ubicación</span>
           <h2>Dónde encontrarnos</h2>
-          <p>Visítanos en nuestra dirección física.</p>
+          <p>Visítanos en nuestra dirección.</p>
         </div>
         <div class="direccion-grid">
           <div class="info-card">
             <h3><i class="fas fa-location-dot"></i> Dirección</h3>
-            <p style="color:var(--muted); margin-bottom: 18px; font-size: 0.95rem;">
+            <p style="color:var(--muted); margin-bottom:16px; font-size:.92rem;">
               <i class="fas fa-map-pin" style="color:var(--primary); margin-right:8px;"></i>
-              Marianao Ave 43 / 118 y 120 #11807 INT 2
+              Ave 43 / 118 y 120 #11807 INT 2
             </p>
             <div class="address-details">
-              <div class="address-item">
-                <i class="fas fa-city"></i>
-                <div><span>Municipio</span><strong>Marianao</strong></div>
-              </div>
-              <div class="address-item">
-                <i class="fas fa-map"></i>
-                <div><span>Provincia</span><strong>La Habana, Cuba</strong></div>
-              </div>
-              <div class="address-item">
-                <i class="fas fa-clock"></i>
-                <div><span>Horario</span><strong>Lun-Vie 10AM-4PM · Sáb 10AM-2PM</strong></div>
-              </div>
-              <div class="address-item">
-                <i class="fas fa-phone"></i>
-                <div><span>Teléfono</span><strong>+53 56194280</strong></div>
-              </div>
+              <div class="address-item"><i class="fas fa-city"></i><div><span>Municipio</span><strong>Marianao</strong></div></div>
+              <div class="address-item"><i class="fas fa-map"></i><div><span>Provincia</span><strong>La Habana, Cuba</strong></div></div>
+              <div class="address-item"><i class="fas fa-clock"></i><div><span>Horario</span><strong>L-V 10-4PM · S 10-2PM</strong></div></div>
+              <div class="address-item"><i class="fas fa-phone"></i><div><span>Teléfono</span><strong>+53 56194280</strong></div></div>
             </div>
             <a class="location-btn" href="https://www.google.com/maps/search/Marianao+Ave+43+118+y+120+11807+INT+2+La+Habana+Cuba" target="_blank">
-              <i class="fas fa-map-location-dot"></i> Abrir en Google Maps
+              <i class="fas fa-map-location-dot"></i> Google Maps
             </a>
           </div>
           <div class="map-container">
             <div class="map-wrapper">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5!2d-82.3895!3d23.0800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMarianao%2C+La+Habana%2C+Cuba!5e0!3m2!1ses!2scu!4v1"
-                width="100%" height="100%" style="border:0;"
-                allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Ubicación DR CELL - Marianao, La Habana">
-              </iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5!2d-82.3895!3d23.0800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMarianao%2C+La+Habana%2C+Cuba!5e0!3m2!1ses!2scu!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="DR CELL Marianao"></iframe>
             </div>
           </div>
         </div>
@@ -782,9 +876,9 @@
         <div class="section-header">
           <span class="mini">Contacto</span>
           <h2>Habla con nosotros</h2>
-          <p>Contáctanos directamente por teléfono o WhatsApp.</p>
+          <p>Contáctanos por teléfono o WhatsApp.</p>
         </div>
-        <div class="info-card" style="max-width:550px;margin:0 auto;">
+        <div class="info-card" style="max-width:520px;margin:0 auto;">
           <div class="contact-links">
             <a href="tel:+5356194280" class="contact-link">
               <i class="fas fa-phone cl-phone"></i>
@@ -798,7 +892,6 @@
         </div>
         <div class="footer">
           <p>© 2025 DR CELL. Todos los derechos reservados.</p>
-          <p>Reparación de software y hardware móvil</p>
         </div>
       </div>
     </div>
@@ -806,46 +899,36 @@
 
   <script>
     function irA(id) {
-      // Ocultar todas las pantallas
       document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
-
-      // Mostrar la pantalla objetivo
       const target = document.getElementById(id);
       if (target) {
         target.classList.add('activa');
-
-        // Scroll al top del contenido
         const sub = target.querySelector('.sub-content');
         if (sub) sub.scrollTop = 0;
+        const ms = target.querySelector('.main-screen');
+        if (ms) ms.scrollTop = 0;
       }
     }
 
-    // Soporte para botón "Atrás" del navegador
-    window.addEventListener('popstate', (e) => {
-      if (e.state && e.state.pantalla) {
-        irA(e.state.pantalla);
-      } else {
-        irA('main');
-      }
-    });
-
-    // Guardar estado en historial al navegar
-    const originalIrA = irA;
+    // Historial del navegador
+    const navOriginal = irA;
     irA = function(id) {
-      originalIrA(id);
+      navOriginal(id);
       if (id !== 'main') {
-        history.pushState({ pantalla: id }, '', '#' + id);
+        history.pushState({ p: id }, '', '#' + id);
       } else {
-        history.pushState({ pantalla: 'main' }, '', window.location.pathname);
+        history.pushState({ p: 'main' }, '', window.location.pathname);
       }
     };
 
-    // Cargar pantalla desde hash al iniciar
+    window.addEventListener('popstate', (e) => {
+      navOriginal(e.state && e.state.p ? e.state.p : 'main');
+    });
+
     window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.replace('#', '');
-      const pantallas = ['servicios', 'horario', 'direccion', 'contacto'];
-      if (pantallas.includes(hash)) {
-        originalIrA(hash);
+      const hash = location.hash.replace('#', '');
+      if (['servicios','horario','direccion','contacto'].includes(hash)) {
+        navOriginal(hash);
       }
     });
   </script>
