@@ -153,7 +153,7 @@
     .sub-content::-webkit-scrollbar-track { background: transparent; }
     .sub-content::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.2); border-radius: 10px; }
 
-    /* ===== PÁGINA PRINCIPAL ===== */
+    /* PÁGINA PRINCIPAL */
     .main-screen {
       height: 100%;
       overflow-y: auto;
@@ -467,6 +467,7 @@
     .section-header h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 8px; font-weight: 800; }
     .section-header p { color: var(--muted); max-width: 520px; margin: 0 auto; font-size: 0.92rem; }
 
+    /* SERVICIOS CON WHATSAPP */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -480,6 +481,7 @@
       transition: var(--transition);
       box-shadow: var(--shadow);
       position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
     }
     .service-card::before {
       content: ""; position: absolute;
@@ -501,8 +503,38 @@
       font-size: 1.2rem; margin-bottom: 12px;
     }
     .service-card h3 { margin-bottom: 6px; font-size: 0.95rem; }
-    .service-card p { color: var(--muted); font-size: 0.82rem; }
+    .service-card > p { color: var(--muted); font-size: 0.82rem; flex: 1; }
 
+    .wa-service-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, #00ff88, #00cc6a);
+      color: #0a0a0f;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.15);
+      border: none;
+      cursor: pointer;
+    }
+    .wa-service-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(0, 255, 136, 0.3);
+    }
+    .wa-service-btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+    .wa-service-btn i {
+      font-size: 0.9rem;
+    }
+
+    /* HORARIO, DIRECCIÓN, CONTACTO */
     .info-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -598,12 +630,9 @@
       text-align: center; color: var(--muted); font-size: .82rem; margin-top: 30px;
     }
 
-    /* ===== RESPONSIVE ===== */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-area {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+      .hero-area { grid-template-columns: 1fr; gap: 20px; }
       .brand-col { order: 1; }
       .phone-col { order: 2; }
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
@@ -644,7 +673,6 @@
       .home-bar { width: 60px; height: 3px; }
 
       .orbit-particle { display: none; }
-      @keyframes orbit { 0%{transform:rotate(0) translateX(95px) rotate(0)}100%{transform:rotate(360deg) translateX(95px) rotate(-360deg)} }
 
       .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .menu-icon { width: 44px; height: 44px; font-size: 1rem; border-radius: 12px; }
@@ -656,6 +684,8 @@
       .sub-content { padding: 20px 0 40px; }
       .section-header { margin-bottom: 24px; }
       .map-wrapper { height: 250px; }
+
+      .wa-service-btn { padding: 9px 14px; font-size: 0.75rem; }
     }
 
     @media (max-width: 380px) {
@@ -680,7 +710,6 @@
         <div class="container">
 
           <div class="hero-area">
-            <!-- BRANDING -->
             <div class="brand-col">
               <div class="main-logo-icon"><i class="fas fa-mobile-screen-button"></i></div>
               <h1 class="main-title">DR <span>CELL</span></h1>
@@ -692,7 +721,6 @@
               </div>
             </div>
 
-            <!-- TELÉFONO FLOTANTE -->
             <div class="phone-col">
               <div class="phone-scene">
                 <div class="orbit-particle orbit-1"></div>
@@ -743,7 +771,6 @@
             </div>
           </div>
 
-          <!-- MENÚ DE NAVEGACIÓN -->
           <div class="menu-grid">
             <div class="menu-card" onclick="irA('servicios')">
               <div class="menu-icon mi-blue"><i class="fas fa-screwdriver-wrench"></i></div>
@@ -786,15 +813,88 @@
           <p>Reparaciones y soluciones técnicas para tu móvil.</p>
         </div>
         <div class="services-grid">
-          <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-screen"></i></div><h3>Cambios de pantallas</h3><p>Reemplazo profesional de pantallas dañadas.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-battery-full"></i></div><h3>Cambio de baterías</h3><p>Mejora el rendimiento de tu equipo.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-plug"></i></div><h3>Puertos de carga</h3><p>Reparación de conectores dañados.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-microchip"></i></div><h3>Microsoldaduras</h3><p>Trabajo de precisión en placa.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-unlock-keyhole"></i></div><h3>Desbloqueos</h3><p>Soluciones de acceso y seguridad.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-shield-halved"></i></div><h3>FRP</h3><p>Eliminación de bloqueo FRP.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-rotate"></i></div><h3>Flasheos</h3><p>Reinstalación de sistema operativo.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-sim-card"></i></div><h3>Liberaciones</h3><p>Usa tu equipo con distintas redes.</p></div>
-          <div class="service-card"><div class="service-icon"><i class="fas fa-download"></i></div><h3>Apps iPhone y Android</h3><p>Instalación de aplicaciones.</p></div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
+            <h3>Cambios de pantallas</h3>
+            <p>Reemplazo profesional de pantallas dañadas.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20un%20cambio%20de%20pantalla%20para%20mi%20celular.%20%C2%BFQu%C3%A9%20precio%20tiene%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-battery-full"></i></div>
+            <h3>Cambio de baterías</h3>
+            <p>Mejora el rendimiento de tu equipo.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20un%20cambio%20de%20bater%C3%ADa%20para%20mi%20celular.%20%C2%BFQu%C3%A9%20precio%20tiene%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-plug"></i></div>
+            <h3>Puertos de carga</h3>
+            <p>Reparación de conectores dañados.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20tengo%20un%20problema%20con%20el%20puerto%20de%20carga%20de%20mi%20celular.%20%C2%BFPueden%20repararlo%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-microchip"></i></div>
+            <h3>Microsoldaduras</h3>
+            <p>Trabajo de precisión en placa.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20una%20microsoldadura%20en%20mi%20celular.%20%C2%BFPueden%20revisarlo%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-unlock-keyhole"></i></div>
+            <h3>Desbloqueos</h3>
+            <p>Soluciones de acceso y seguridad.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20desbloquear%20mi%20celular.%20%C2%BFQu%C3%A9%20opciones%20tienen%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+            <h3>FRP</h3>
+            <p>Eliminación de bloqueo FRP.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20eliminar%20el%20bloqueo%20FRP%20de%20mi%20celular.%20%C2%BFPueden%20hacerlo%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-rotate"></i></div>
+            <h3>Flasheos</h3>
+            <p>Reinstalación de sistema operativo.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20un%20flasheo%20para%20mi%20celular.%20%C2%BFQu%C3%A9%20precio%20tiene%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-sim-card"></i></div>
+            <h3>Liberaciones</h3>
+            <p>Usa tu equipo con distintas redes.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20liberar%20mi%20celular.%20%C2%BFQu%C3%A9%20precio%20tiene%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-download"></i></div>
+            <h3>Apps iPhone y Android</h3>
+            <p>Instalación de aplicaciones.</p>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20instalar%20aplicaciones%20en%20mi%20celular.%20%C2%BFQu%C3%A9%20apps%20tienen%20disponibles%3F" target="_blank" class="wa-service-btn">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
@@ -910,7 +1010,6 @@
       }
     }
 
-    // Historial del navegador
     const navOriginal = irA;
     irA = function(id) {
       navOriginal(id);
