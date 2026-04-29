@@ -1,50 +1,853 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Negocio - Servicios Móviles</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DR CELL | Reparación de Software y Hardware Móvil en Marianao, La Habana</title>
+
+  <meta name="description" content="DR CELL - Servicio técnico de reparación de celulares en Marianao, La Habana. Pantallas, baterías, puertos de carga, microsoldaduras, FRP, flasheos, desbloqueos y más. Llama al +53 56194280.">
+  <meta name="keywords" content="reparación celulares, DR CELL, arreglar teléfono, pantalla rota, cambio batería, desbloqueo celular, FRP, flasheo, Marianao, La Habana, Cuba, servicio técnico móvil">
+  <meta name="author" content="DR CELL">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <meta property="og:title" content="DR CELL | Reparación de Software y Hardware Móvil">
+  <meta property="og:description" content="Soluciones rápidas y profesionales para tu celular en Marianao, La Habana.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leo12105.github.io/DR-CELL-/">
+  <meta property="og:image" content="https://leo12105.github.io/DR-CELL-/preview.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DR CELL | Reparación Móvil">
+  <meta name="twitter:description" content="Reparación profesional de celulares en Marianao, La Habana.">
+
+  <link rel="canonical" href="https://leo12105.github.io/DR-CELL-/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DR CELL",
+    "description": "Reparación de software y hardware móvil",
+    "telephone": "+5356194280",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ave 43 / 118 y 120 #11807 INT 2",
+      "addressLocality": "Marianao",
+      "addressRegion": "La Habana",
+      "addressCountry": "CU"
+    },
+    "openingHours": ["Mo-Fr 10:00-16:00", "Sa 10:00-14:00"],
+    "url": "https://leo12105.github.io/DR-CELL-/",
+    "priceRange": "$"
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-2: #0d0d15;
+      --card: #12121c;
+      --primary: #00f0ff;
+      --neon-pink: #ff00e5;
+      --neon-purple: #b000ff;
+      --neon-green: #00ff88;
+      --neon-blue: #00f0ff;
+      --neon-orange: #ff6b00;
+      --text: #ffffff;
+      --muted: #8a8fa8;
+      --success: #00ff88;
+      --danger: #ff3860;
+      --border: rgba(0, 240, 255, 0.08);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --radius: 18px;
+      --transition: 0.3s ease;
+      --gradient: linear-gradient(135deg, #00f0ff 0%, #b000ff 50%, #ff00e5 100%);
+      --gradient-2: linear-gradient(135deg, #00f0ff 0%, #00ff88 100%);
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ===== FONDO NEÓN ===== */
+    .bg-blur {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .bg-blur::before, .bg-blur::after {
+      content: ""; position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%; filter: blur(120px); opacity: 0.12;
+    }
+    .bg-blur::before { background: var(--neon-blue); top: -100px; left: -120px; }
+    .bg-blur::after { background: var(--neon-pink); right: -100px; bottom: -80px; }
+
+    .bg-glow-extra {
+      position: fixed; width: 400px; height: 400px;
+      border-radius: 50%; filter: blur(100px); opacity: 0.08;
+      background: var(--neon-purple);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ===== PANTALLAS ===== */
+    .pantalla {
+      position: fixed; inset: 0;
+      z-index: 1;
+      display: none;
+      flex-direction: column;
+    }
+    .pantalla.activa {
+      display: flex;
+      animation: fadeIn 0.35s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ===== BARRA SUPERIOR (subpáginas) ===== */
+    .top-bar {
+      height: 64px;
+      background: rgba(10, 10, 15, 0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.06);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .back-btn {
+      width: 42px; height: 42px;
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      background: rgba(0, 240, 255, 0.06);
+      border-radius: 12px;
+      color: var(--primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: var(--transition);
+    }
+    .back-btn:hover {
+      background: rgba(0, 240, 255, 0.12);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+      transform: translateX(-2px);
+    }
+
+    .top-bar-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 40px 0 60px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sub-content::-webkit-scrollbar { width: 5px; }
+    .sub-content::-webkit-scrollbar-track { background: transparent; }
+    .sub-content::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.2); border-radius: 10px; }
+
+    /* ===== PÁGINA PRINCIPAL ===== */
+    .main-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+    }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* LADO IZQUIERDO - BRANDING */
+    .brand-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .main-logo-icon {
+      width: 90px; height: 90px;
+      border-radius: 26px;
+      background: var(--gradient);
+      display: grid; place-items: center;
+      font-size: 2.4rem;
+      color: white;
+      margin-bottom: 20px;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), 0 0 80px rgba(176, 0, 255, 0.15);
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+    @keyframes logoPulse {
+      0%,100% { box-shadow: 0 0 40px rgba(0,240,255,.3), 0 0 80px rgba(176,0,255,.15); }
+      50% { box-shadow: 0 0 60px rgba(0,240,255,.45), 0 0 100px rgba(176,0,255,.25); }
+    }
+
+    .main-title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .main-title span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .main-tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .main-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      background: rgba(0, 240, 255, 0.06);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      margin-bottom: 24px;
+    }
+
+    .quick-contact {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .qc-btn {
+      display: inline-flex;
+      align-items: center; gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: none; cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .qc-call {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+    .qc-call:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.35);
+    }
+
+    .qc-wa {
+      background: linear-gradient(135deg, #00ff88, #00cc6a);
+      color: #0a0a0f;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    .qc-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.35);
+    }
+
+    /* LADO DERECHO - MENÚ DE BOTONES */
+    .menu-side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .menu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.06);
+    }
+
+    .menu-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover {
+      transform: translateX(6px);
+      border-color: rgba(0, 240, 255, 0.18);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 240, 255, 0.05);
+    }
+    .menu-card:hover::before { opacity: 1; }
+    .menu-card:active { transform: translateX(6px) scale(0.98); }
+
+    .menu-icon {
+      width: 54px; height: 54px;
+      min-width: 54px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+
+    .mi-blue { background: rgba(0, 240, 255, 0.1); color: var(--neon-blue); }
+    .mi-green { background: rgba(0, 255, 136, 0.1); color: var(--neon-green); }
+    .mi-purple { background: rgba(176, 0, 255, 0.1); color: var(--neon-purple); }
+    .mi-orange { background: rgba(255, 107, 0, 0.1); color: var(--neon-orange); }
+    .mi-pink { background: rgba(255, 0, 229, 0.1); color: var(--neon-pink); }
+
+    .menu-card:hover .mi-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+    .menu-card:hover .mi-green { box-shadow: 0 0 20px rgba(0, 255, 136, 0.2); }
+    .menu-card:hover .mi-purple { box-shadow: 0 0 20px rgba(176, 0, 255, 0.2); }
+    .menu-card:hover .mi-orange { box-shadow: 0 0 20px rgba(255, 107, 0, 0.2); }
+    .menu-card:hover .mi-pink { box-shadow: 0 0 20px rgba(255, 0, 229, 0.2); }
+
+    .menu-info { flex: 1; }
+    .menu-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+    .menu-info p { color: var(--muted); font-size: 0.82rem; }
+
+    .menu-arrow {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .menu-card:hover .menu-arrow {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    /* ===== SECCIONES INTERNAS ===== */
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header .mini {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-weight: 700;
+    }
+    .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 10px; font-weight: 800; }
+    .section-header p { color: var(--muted); max-width: 580px; margin: 0 auto; }
+
+    /* SERVICIOS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 240, 255, 0.2);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,240,255,0.05);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      background: rgba(0, 240, 255, 0.08);
+      color: var(--neon-blue);
+      display: grid; place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.08);
+    }
+    .service-card h3 { margin-bottom: 6px; font-size: 1rem; }
+    .service-card p { color: var(--muted); font-size: 0.85rem; }
+
+    /* HORARIO */
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .info-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .info-card h3 i { color: var(--primary); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+
+    .schedule-list { display: flex; flex-direction: column; gap: 14px; }
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.05);
+      color: var(--muted);
+    }
+    .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .open { color: var(--neon-green); font-weight: 600; text-shadow: 0 0 10px rgba(0,255,136,.3); }
+    .closed { color: var(--danger); font-weight: 600; text-shadow: 0 0 10px rgba(255,56,96,.3); }
+
+    /* DIRECCIÓN */
+    .direccion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .address-details {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .address-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 14px;
+      background: rgba(0, 240, 255, 0.03);
+      border: 1px solid rgba(0, 240, 255, 0.06);
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+    .address-item:hover {
+      border-color: rgba(0, 240, 255, 0.18);
+      transform: translateX(4px);
+    }
+    .address-item i {
+      width: 38px; height: 38px; min-width: 38px;
+      border-radius: 10px;
+      background: rgba(0, 240, 255, 0.08);
+      color: var(--primary);
+      display: grid; place-items: center;
+      font-size: 0.95rem;
+    }
+    .address-item span { display: block; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .address-item strong { display: block; font-size: 0.92rem; font-weight: 600; }
+
+    .location-btn {
+      display: inline-flex;
+      align-items: center; gap: 10px;
+      background: var(--gradient);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 10px;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+    }
+    .location-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    }
+
+    .map-container {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.06), 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    .map-wrapper { width: 100%; height: 400px; }
+    .map-wrapper iframe {
+      width: 100%; height: 100%;
+      border: 0; border-radius: var(--radius);
+      filter: invert(90%) hue-rotate(180deg) saturate(0.8) brightness(0.9);
+    }
+
+    /* CONTACTO */
+    .contact-links { display: flex; flex-direction: column; gap: 14px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(0, 240, 255, 0.02);
+      border: 1px solid rgba(0, 240, 255, 0.06);
+      padding: 18px;
+      border-radius: 14px;
+      color: white;
+      transition: var(--transition);
+    }
+    .contact-link:hover {
+      border-color: rgba(0, 240, 255, 0.2);
+      transform: translateX(4px);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+    }
+    .contact-link i {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-size: 1.2rem;
+    }
+    .cl-phone { background: rgba(0, 240, 255, 0.08); color: var(--primary); }
+    .cl-wa { background: rgba(0, 255, 136, 0.08); color: var(--neon-green); }
+    .contact-link span { display: block; color: var(--muted); font-size: .88rem; }
+    .contact-link strong { color: white; font-size: 1.05rem; }
+
+    /* FOOTER */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid rgba(0, 240, 255, 0.05);
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 40px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .brand-side { order: 1; }
+      .menu-side { order: 2; }
+      .main-title { font-size: 2.4rem; }
+      .main-logo-icon { width: 72px; height: 72px; font-size: 2rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .direccion-grid { grid-template-columns: 1fr; }
+      .map-wrapper { height: 300px; }
+    }
+
+    @media (max-width: 600px) {
+      .main-screen { padding: 20px 0; }
+      .main-title { font-size: 2rem; }
+      .main-logo-icon { width: 64px; height: 64px; font-size: 1.7rem; border-radius: 20px; }
+      .menu-card { padding: 16px 18px; gap: 14px; }
+      .menu-icon { width: 46px; height: 46px; min-width: 46px; font-size: 1.1rem; border-radius: 12px; }
+      .menu-info h3 { font-size: 0.95rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .quick-contact { flex-direction: column; }
+      .qc-btn { justify-content: center; }
+      .top-bar { padding: 0 16px; }
+      .sub-content { padding: 24px 0 40px; }
+      .map-wrapper { height: 260px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <h1>Tu Logo / Nombre</h1>
-    <nav>
-      <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Reparación y Desbloqueo de Móviles</h2>
-    <p>Rápido, seguro y con garantía.</p>
-    <a href="#contacto" class="btn">Solicitar Servicio</a>
-  </section>
+  <div class="bg-blur"></div>
+  <div class="bg-glow-extra"></div>
 
-  <!-- Servicios -->
-  <section id="servicios">
-    <h2>Nuestros Servicios</h2>
-    <div class="servicio">Cambio de pantalla</div>
-    <div class="servicio">Reemplazo de batería</div>
-    <div class="servicio">Desbloqueo por software</div>
-    <div class="servicio">Reparación de puertos</div>
-  </section>
+  <!-- ===== PANTALLA PRINCIPAL ===== -->
+  <div class="pantalla activa" id="main">
+    <div class="main-screen">
+      <div class="container main-layout">
 
-  <!-- Contacto -->
-  <section id="contacto">
-    <h2>Contáctanos</h2>
-    <p>WhatsApp: +53 XXX XXX</p>
-    <p>Email: tuemail@ejemplo.com</p>
-  </section>
+        <!-- BRANDING -->
+        <div class="brand-side">
+          <div class="main-logo-icon">
+            <i class="fas fa-mobile-screen-button"></i>
+          </div>
+          <h1 class="main-title">DR <span>CELL</span></h1>
+          <p class="main-tagline">Reparación de Software y Hardware Móvil</p>
+          <div class="main-badge">
+            <i class="fas fa-map-marker-alt"></i> Marianao, La Habana
+          </div>
+          <div class="quick-contact">
+            <a href="tel:+5356194280" class="qc-btn qc-call">
+              <i class="fas fa-phone"></i> Llamar ahora
+            </a>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20informaci%C3%B3n" target="_blank" class="qc-btn qc-wa">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Tu Negocio. Todos los derechos reservados.</p>
-  </footer>
+        <!-- MENÚ DE NAVEGACIÓN -->
+        <div class="menu-side">
+          <div class="menu-card" onclick="irA('servicios')">
+            <div class="menu-icon mi-blue"><i class="fas fa-screwdriver-wrench"></i></div>
+            <div class="menu-info">
+              <h3>Servicios</h3>
+              <p>Pantallas, baterías, FRP, flasheos y más</p>
+            </div>
+            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+          </div>
+
+          <div class="menu-card" onclick="irA('horario')">
+            <div class="menu-icon mi-green"><i class="fas fa-clock"></i></div>
+            <div class="menu-info">
+              <h3>Horario</h3>
+              <p>Días y horas de atención</p>
+            </div>
+            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+          </div>
+
+          <div class="menu-card" onclick="irA('direccion')">
+            <div class="menu-icon mi-purple"><i class="fas fa-location-dot"></i></div>
+            <div class="menu-info">
+              <h3>Dirección</h3>
+              <p>Ubicación y mapa</p>
+            </div>
+            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+          </div>
+
+          <div class="menu-card" onclick="irA('contacto')">
+            <div class="menu-icon mi-orange"><i class="fas fa-address-book"></i></div>
+            <div class="menu-info">
+              <h3>Contacto</h3>
+              <p>Teléfono y WhatsApp directo</p>
+            </div>
+            <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICIOS ===== -->
+  <div class="pantalla" id="servicios">
+    <div class="top-bar">
+      <button class="back-btn" onclick="irA('main')"><i class="fas fa-arrow-left"></i></button>
+      <span class="top-bar-title">Servicios</span>
+    </div>
+    <div class="sub-content">
+      <div class="container">
+        <div class="section-header">
+          <span class="mini">Nuestros servicios</span>
+          <h2>Lo que hacemos</h2>
+          <p>Reparaciones y soluciones técnicas para mantener tu móvil en perfecto estado.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-screen"></i></div><h3>Cambios de pantallas</h3><p>Reemplazo de pantallas dañadas con instalación profesional.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-battery-full"></i></div><h3>Cambio de baterías</h3><p>Mejora el rendimiento y autonomía de tu equipo.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-plug"></i></div><h3>Puertos de carga</h3><p>Reparamos o sustituimos conectores dañados.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-microchip"></i></div><h3>Microsoldaduras</h3><p>Trabajo técnico de precisión en placa y componentes.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-unlock-keyhole"></i></div><h3>Desbloqueos</h3><p>Soluciones para acceso, bloqueo y seguridad del equipo.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-shield-halved"></i></div><h3>FRP</h3><p>Eliminación de bloqueo FRP en equipos compatibles.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-rotate"></i></div><h3>Flasheos</h3><p>Actualización y reinstalación de sistema operativo.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-sim-card"></i></div><h3>Liberaciones</h3><p>Procesos para usar tu equipo con distintas redes.</p></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-download"></i></div><h3>Apps para iPhone y Android</h3><p>Instalación y configuración de aplicaciones móviles.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HORARIO ===== -->
+  <div class="pantalla" id="horario">
+    <div class="top-bar">
+      <button class="back-btn" onclick="irA('main')"><i class="fas fa-arrow-left"></i></button>
+      <span class="top-bar-title">Horario</span>
+    </div>
+    <div class="sub-content">
+      <div class="container">
+        <div class="section-header">
+          <span class="mini">Horario</span>
+          <h2>Cuándo encontrarnos</h2>
+          <p>Estos son nuestros horarios de atención.</p>
+        </div>
+        <div class="info-card" style="max-width:550px;margin:0 auto;">
+          <h3><i class="fas fa-clock"></i> Horario de atención</h3>
+          <div class="schedule-list">
+            <div class="schedule-item"><span>Lunes a Viernes</span><span class="open">10:00 AM - 4:00 PM</span></div>
+            <div class="schedule-item"><span>Sábados</span><span class="open">10:00 AM - 2:00 PM</span></div>
+            <div class="schedule-item"><span>Domingos</span><span class="closed">Cerrado</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DIRECCIÓN ===== -->
+  <div class="pantalla" id="direccion">
+    <div class="top-bar">
+      <button class="back-btn" onclick="irA('main')"><i class="fas fa-arrow-left"></i></button>
+      <span class="top-bar-title">Dirección</span>
+    </div>
+    <div class="sub-content">
+      <div class="container">
+        <div class="section-header">
+          <span class="mini">Ubicación</span>
+          <h2>Dónde encontrarnos</h2>
+          <p>Visítanos en nuestra dirección física.</p>
+        </div>
+        <div class="direccion-grid">
+          <div class="info-card">
+            <h3><i class="fas fa-location-dot"></i> Dirección</h3>
+            <p style="color:var(--muted); margin-bottom: 18px; font-size: 0.95rem;">
+              <i class="fas fa-map-pin" style="color:var(--primary); margin-right:8px;"></i>
+              Marianao Ave 43 / 118 y 120 #11807 INT 2
+            </p>
+            <div class="address-details">
+              <div class="address-item">
+                <i class="fas fa-city"></i>
+                <div><span>Municipio</span><strong>Marianao</strong></div>
+              </div>
+              <div class="address-item">
+                <i class="fas fa-map"></i>
+                <div><span>Provincia</span><strong>La Habana, Cuba</strong></div>
+              </div>
+              <div class="address-item">
+                <i class="fas fa-clock"></i>
+                <div><span>Horario</span><strong>Lun-Vie 10AM-4PM · Sáb 10AM-2PM</strong></div>
+              </div>
+              <div class="address-item">
+                <i class="fas fa-phone"></i>
+                <div><span>Teléfono</span><strong>+53 56194280</strong></div>
+              </div>
+            </div>
+            <a class="location-btn" href="https://www.google.com/maps/search/Marianao+Ave+43+118+y+120+11807+INT+2+La+Habana+Cuba" target="_blank">
+              <i class="fas fa-map-location-dot"></i> Abrir en Google Maps
+            </a>
+          </div>
+          <div class="map-container">
+            <div class="map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5!2d-82.3895!3d23.0800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMarianao%2C+La+Habana%2C+Cuba!5e0!3m2!1ses!2scu!4v1"
+                width="100%" height="100%" style="border:0;"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación DR CELL - Marianao, La Habana">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACTO ===== -->
+  <div class="pantalla" id="contacto">
+    <div class="top-bar">
+      <button class="back-btn" onclick="irA('main')"><i class="fas fa-arrow-left"></i></button>
+      <span class="top-bar-title">Contacto</span>
+    </div>
+    <div class="sub-content">
+      <div class="container">
+        <div class="section-header">
+          <span class="mini">Contacto</span>
+          <h2>Habla con nosotros</h2>
+          <p>Contáctanos directamente por teléfono o WhatsApp.</p>
+        </div>
+        <div class="info-card" style="max-width:550px;margin:0 auto;">
+          <div class="contact-links">
+            <a href="tel:+5356194280" class="contact-link">
+              <i class="fas fa-phone cl-phone"></i>
+              <div><span>Teléfono</span><strong>+53 56194280</strong></div>
+            </a>
+            <a href="https://wa.me/5356194280?text=Hola%20DR%20CELL%2C%20necesito%20informaci%C3%B3n" target="_blank" class="contact-link">
+              <i class="fab fa-whatsapp cl-wa"></i>
+              <div><span>WhatsApp</span><strong>+53 56194280</strong></div>
+            </a>
+          </div>
+        </div>
+        <div class="footer">
+          <p>© 2025 DR CELL. Todos los derechos reservados.</p>
+          <p>Reparación de software y hardware móvil</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function irA(id) {
+      // Ocultar todas las pantallas
+      document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+
+      // Mostrar la pantalla objetivo
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('activa');
+
+        // Scroll al top del contenido
+        const sub = target.querySelector('.sub-content');
+        if (sub) sub.scrollTop = 0;
+      }
+    }
+
+    // Soporte para botón "Atrás" del navegador
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.pantalla) {
+        irA(e.state.pantalla);
+      } else {
+        irA('main');
+      }
+    });
+
+    // Guardar estado en historial al navegar
+    const originalIrA = irA;
+    irA = function(id) {
+      originalIrA(id);
+      if (id !== 'main') {
+        history.pushState({ pantalla: id }, '', '#' + id);
+      } else {
+        history.pushState({ pantalla: 'main' }, '', window.location.pathname);
+      }
+    };
+
+    // Cargar pantalla desde hash al iniciar
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      const pantallas = ['servicios', 'horario', 'direccion', 'contacto'];
+      if (pantallas.includes(hash)) {
+        originalIrA(hash);
+      }
+    });
+  </script>
 </body>
 </html>
